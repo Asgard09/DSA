@@ -5,21 +5,24 @@ public class MyBST {
 
     }
 
-    public TreeNode insert(TreeNode root, int value){
-        // TH1: root == null
+    public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) {
-            root = new TreeNode(value);
-            return root;
+            return new TreeNode(val);
+        }
+
+        if (val < root.val) {
+            if (root.left == null) {
+                root.left = new TreeNode(val);
+            }else{
+                insertIntoBST(root.left, val);
+            }
         }else{
-            TreeNode temp = root;
-            while (true) {
-                if (value > temp.val) {
-                    temp = temp.right;
-                }else{
-                    temp = temp.left;
-                }
+            if (root.right == null) {
+                root.right = new TreeNode(val);
+            }else{
+                insertIntoBST(root.right, val);
             }
         }
-        return null;
+        return root;
     }
 }
