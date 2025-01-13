@@ -7,8 +7,15 @@ public class _206_Reverse_Linked_List {
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
 
-    public ListNode reverseList(ListNode head) {
-        
-        return null;
+    public ListNode reverseList(ListNode curr) {
+        ListNode prev = null;
+
+        while (curr != null) {
+            ListNode temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        return prev;
     }
 }
