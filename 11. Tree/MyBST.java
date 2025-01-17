@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyBST {
     private TreeNode root;
 
@@ -65,7 +68,7 @@ public class MyBST {
         }
         return root;
     }
-    
+
     public TreeNode searchBST(TreeNode root, int val) {
         if(root == null) return null;
         if(val < root.val){
@@ -75,5 +78,18 @@ public class MyBST {
         }else{
             return root;
         }
+    }
+
+    List<Integer> newList = new ArrayList<>();
+    
+    public List<Integer> preorderTraversal(TreeNode root) {
+        if (root == null) {
+            return newList;
+        }
+        newList.add(root.val);
+
+        preorderTraversal(root.left);
+        preorderTraversal(root.right);
+        return newList;
     }
 }
