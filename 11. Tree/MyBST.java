@@ -93,6 +93,17 @@ public class MyBST {
         return newList;
     }
 
+    public List<Integer> inorderTraversal(TreeNode root) {
+        if (root == null) {
+            return newList;
+        }
+        inorderTraversal(root.left);
+        newList.add(root.val);
+        inorderTraversal(root.right);
+        
+        return newList;
+    }
+
     public List<Integer> postorderTraversal(TreeNode root) {
         if (root == null) {
             return newList;
