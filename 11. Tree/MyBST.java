@@ -80,9 +80,9 @@ public class MyBST {
         }
     }
 
-    List<Integer> newList = new ArrayList<>();
+    static List<Integer> newList = new ArrayList<>();
     
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public static List<Integer> preorderTraversal(TreeNode root) {
         if (root == null) {
             return newList;
         }
@@ -112,5 +112,17 @@ public class MyBST {
         postorderTraversal(root.right);
         newList.add(root.val);
         return newList;
+    }
+
+    public static void main(String[] args) {
+        MyBST myBST = new MyBST();
+        myBST.root = myBST.insertIntoBST(myBST.root, 5);
+        myBST.root = myBST.insertIntoBST(myBST.root, 3);
+        myBST.root = myBST.insertIntoBST(myBST.root, 6);
+        myBST.root = myBST.insertIntoBST(myBST.root, 2);
+        myBST.root = myBST.insertIntoBST(myBST.root, 4);
+        myBST.root = myBST.insertIntoBST(myBST.root, 7);
+
+        System.out.println(preorderTraversal(myBST.root).toString());
     }
 }
