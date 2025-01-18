@@ -92,4 +92,14 @@ public class MyBST {
         preorderTraversal(root.right);
         return newList;
     }
+
+    public List<Integer> postorderTraversal(TreeNode root) {
+        if (root == null) {
+            return newList;
+        }
+        postorderTraversal(root.left);
+        postorderTraversal(root.right);
+        newList.add(root.val);
+        return newList;
+    }
 }
