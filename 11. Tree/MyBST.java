@@ -123,6 +123,7 @@ public class MyBST {
         myBST.root = myBST.insertIntoBST(myBST.root, 4);
         myBST.root = myBST.insertIntoBST(myBST.root, 7);
 
+        myBST.deleteNode(myBST.root, 5);
         System.out.println(preorderTraversal(myBST.root).toString());
     }
 }
