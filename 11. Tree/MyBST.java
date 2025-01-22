@@ -62,6 +62,7 @@ public class MyBST {
         return root;
 
     }
+    // two options
     private TreeNode findInOrderSuccessor(TreeNode root){
         while(root.left != null){
             root = root.left;
