@@ -19,6 +19,25 @@ public class MyHeap {
         return arr[0];
     }
 
+    public void swap (int a, int b){
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+
+    public void add(int value){
+        size++;
+        arr[size] = value;
+        int currentIndex = size;
+        int parentIndex = currentIndex/2;
+        
+        while (parentIndex != 0 && arr[currentIndex] <= arr[parentIndex]) {
+            swap(currentIndex, parentIndex);
+            currentIndex = parentIndex;
+            parentIndex = currentIndex/2;
+        }
+    }
+
     public static void main(String[] args) {
         
     }
