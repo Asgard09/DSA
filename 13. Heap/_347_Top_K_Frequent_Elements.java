@@ -13,7 +13,7 @@ public class _347_Top_K_Frequent_Elements {
         PriorityQueue<Map.Entry<Integer, Integer>> heap = new PriorityQueue<>(
             (a,b) -> Integer.compare(a.getValue(), b.getValue())
         );
-
+        
         // Add elemts into heap
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             heap.add(entry);
