@@ -5,7 +5,6 @@ public class _567_Permutation_in_String {
         if (s1.length() > s2.length()) {
             return false;
         }
-        
         HashMap<Character, Integer> s1Count = new HashMap<>();
         HashMap<Character, Integer> s2Count = new HashMap<>();
         
@@ -40,9 +39,4 @@ public class _567_Permutation_in_String {
         return false;        
     }
 
-    public static void main(String[] args) {
-        String s1 = "ab";
-        String s2 = "dbaooo";
-        System.out.println(checkInclusion(s1, s2));
-    }
 }
