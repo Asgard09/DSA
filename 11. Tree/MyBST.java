@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyBST {
-    private TreeNode root;
+    public TreeNode root;
 
     public MyBST(){
 
