@@ -4,16 +4,23 @@ public class _110_Balanced_Binary_Tree {
         return calculateLength(root) != -1;
     }
 
+    /*If statement used to consider left tree, right tree if not have 
+      the program just consider root
+     */
     public static int calculateLength(TreeNode root){
         if (root == null) {
             return 0;
         }
 
         int leftHeight = calculateLength(root.left);
+
+        //Consider left tree
         if (leftHeight == -1 ) {
             return -1;
         }
         int rightHeight = calculateLength(root.right);
+
+        //Consider right tree
         if (rightHeight == -1 ) {
             return -1;
         }
@@ -24,15 +31,14 @@ public class _110_Balanced_Binary_Tree {
     }
 
     public static void main(String[] args) {
-        MyBST myBST = new MyBST();
-        myBST.root = myBST.insertIntoBST(myBST.root, 5);
-        myBST.root = myBST.insertIntoBST(myBST.root, 6);
-        myBST.root = myBST.insertIntoBST(myBST.root, 7);
-        myBST.root = myBST.insertIntoBST(myBST.root, 8);
-        myBST.root = myBST.insertIntoBST(myBST.root, 4);
-        myBST.root = myBST.insertIntoBST(myBST.root, 3);
-        myBST.root = myBST.insertIntoBST(myBST.root, 2);
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(3);
+        root.right.right = new TreeNode(3);
+        root.left.left.left = new TreeNode(4);
+        root.right.right.right = new TreeNode(4);
 
-        System.out.println(isBalanced(myBST.root));
+        System.out.println(isBalanced(root));
     }
 }
