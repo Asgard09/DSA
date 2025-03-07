@@ -1,18 +1,19 @@
-public class _242_Valid_Anagram {
-    public boolean isAnagram(String s, String t) {
-        if (s.length()!=t.length()) {
-            return false;
-        }
-        for (int i = 0; i < s.length(); i++) {
-            if (!s.contains(String.valueOf(t.charAt(i)))) {
-                return false;
-            }
-        }
-        return true;
+import java.util.Arrays;
+import java.util.HashMap;
 
-        
+public class _242_Valid_Anagram {
+    public static boolean isAnagram(String s, String t) {
+        char[] sChar = s.toCharArray();
+        char[] tChar = t.toCharArray();
+        Arrays.sort(sChar);
+        Arrays.sort(tChar);
+
+        return Arrays.equals(sChar, tChar);
     }
+
     public static void main(String[] args) {
-        
+        String s = "racecar";
+        String t = "carrace";
+        System.out.println(isAnagram(s, t));
     }
 }
