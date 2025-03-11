@@ -5,15 +5,15 @@ public class _3_Longest_Substring_Without_Repeating_Characters {
     public static int lengthOfLongestSubstring(String s) {
         Set<Character> mySet = new HashSet<>();
         int res = 0;
-        int firstIndexOfSet = 0;
-        
-        for (int i = 0 ; i<s.length(); i++){
-            while(mySet.contains(s.charAt(i))){
-                mySet.remove(s.charAt(firstIndexOfSet));
-                firstIndexOfSet++;
+        int left = 0;
+
+        for (int right = 0 ; right<s.length(); right++){
+            while(mySet.contains(s.charAt(right))){
+                mySet.remove(s.charAt(left));
+                left++;
             }
 
-            mySet.add(s.charAt(i));
+            mySet.add(s.charAt(right));
 
             res = Math.max(res, mySet.size());
         }
