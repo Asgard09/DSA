@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class _268_Missing_Number {
     public static int missingNumber(int[] nums) {
         int res = nums.length;

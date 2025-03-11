@@ -3,24 +3,25 @@ import java.util.Set;
 
 public class _3_Longest_Substring_Without_Repeating_Characters {
     public static int lengthOfLongestSubstring(String s) {
-        int left = 0;
-        int longest = 0;
-        Set<Character> charSet = new HashSet<>();  
-        for(int right = 0; right<s.length();right++ ){
-            // ensure in the set dont have any character like 's.charAt(right)'
-            // left will be increase correct
-            while (charSet.contains(s.charAt(right))) {
-                charSet.remove(s.charAt(left));
-                left++;
+        Set<Character> mySet = new HashSet<>();
+        int res = 0;
+        int firstIndexOfSet = 0;
+        
+        for (int i = 0 ; i<s.length(); i++){
+            while(mySet.contains(s.charAt(i))){
+                mySet.remove(s.charAt(firstIndexOfSet));
+                firstIndexOfSet++;
             }
-            charSet.add(s.charAt(right));
-            longest = Math.max(longest, right - left + 1);
-        }
-        return longest;
-    }
 
+            mySet.add(s.charAt(i));
+
+            res = Math.max(res, mySet.size());
+        }
+
+        return res;
+    }
     public static void main(String[] args) {
-        String s = "pwwkew";
+        String s = "dvdf";
         System.out.println(lengthOfLongestSubstring(s));
     }
 }

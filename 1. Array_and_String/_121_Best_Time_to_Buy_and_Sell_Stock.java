@@ -1,22 +1,21 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class _121_Best_Time_to_Buy_and_Sell_Stock {
     public static int maxProfit(int[] prices) {
-        int n = prices.length;
-        int profit = 0; //window
-        int buy = 0; //left
+        int sell = prices[0];
+        int profit = 0;
 
-        for (int sell = 1 /*right */; sell < n; sell++) {
-            if (prices[sell] < prices[buy]) {
-                prices[buy] = prices[sell];
+        for (int i = 1; i<prices.length; i++){
+            if(sell > prices[i]){
+                sell = prices[i];
             }
-            profit = Math.max(profit, prices[sell] - prices[buy]);
+
+            profit = Math.max(profit, prices[i]-sell);
         }
 
         return profit;
 
-    }
-
-    public static void main(String[] args) {
-        int[] prices = {3,2,6,5,0,3};
-        System.out.println(maxProfit(prices));
+        Set<Integer> mySet = new HashSet<>();
     }
 }

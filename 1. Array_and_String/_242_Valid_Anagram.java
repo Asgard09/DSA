@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class _242_Valid_Anagram {
     public static boolean isAnagram(String s, String t) {

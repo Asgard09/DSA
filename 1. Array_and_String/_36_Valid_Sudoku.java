@@ -1,5 +1,4 @@
 import java.util.HashSet;
-import java.util.Set;
 
 public class _36_Valid_Sudoku {
     public boolean isValidSudoku(char[][] board) {
