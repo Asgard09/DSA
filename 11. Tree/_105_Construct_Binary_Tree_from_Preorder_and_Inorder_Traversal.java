@@ -1,6 +1,13 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * The first element of the preorder array is always the root.
+ * Locate this root in the inorder array.
+ * The left subtree is formed by the elements before this root in inorder.
+ * The right subtree is formed by the elements after this root in inorder.
+ * Use recursion to build the left and right subtrees.
+ */
 public class _105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal {
     private static int preorderIndex;
     private static Map<Integer, Integer> mapping;
@@ -18,9 +25,10 @@ public class _105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal {
     private static TreeNode build(int[] preorder, int start, int end) {
         if (start > end) return null;
 
+        /*Get root val through preorder */
         int rootVal = preorder[preorderIndex++];
         TreeNode root = new TreeNode(rootVal);
-        
+
         /*represents the index of the current root node in the inorder array*/
         int mid = mapping.get(rootVal);
 
@@ -28,12 +36,5 @@ public class _105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal {
         root.right = build(preorder, mid + 1, end);
 
         return root;
-    }
-
-    public static void main(String[] args) {
-        int[] preorder = {3,9,20,15,7};
-        int[] inorder = {9,3,15,20,7};
-
-        TreeNode newTree = buildTree(preorder, inorder);
     }
 }
