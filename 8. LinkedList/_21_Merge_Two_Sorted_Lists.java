@@ -28,6 +28,8 @@ public class _21_Merge_Two_Sorted_Lists {
 
             curr = curr.next;
         }
+
+        /*Ensure when lis1 or list2 is null the result list will link with other is not null */
         curr.next =(list1!=null)? list1 : list2;
         return dummy.next;
     }
