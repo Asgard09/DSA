@@ -1,6 +1,3 @@
-import java.util.HashSet;
-import java.util.Set;
-
 public class _121_Best_Time_to_Buy_and_Sell_Stock {
     public static int maxProfit(int[] prices) {
         int sell = prices[0];
@@ -15,7 +12,5 @@ public class _121_Best_Time_to_Buy_and_Sell_Stock {
         }
 
         return profit;
-
-        Set<Integer> mySet = new HashSet<>();
     }
 }

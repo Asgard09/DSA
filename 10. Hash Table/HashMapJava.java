@@ -23,5 +23,14 @@ public class HashMapJava {
         for(Map.Entry<Integer, Integer> entry : myMap.entrySet()){
             System.out.println(entry.getKey() + " xuat hien " + entry.getValue() + " lan");
         }
+
+        HashMap<Integer, Integer> numMap = new HashMap<>();
+
+        numMap.put(1, 1);
+        numMap.put(2, 2);
+        numMap.put(3, 3);
+        numMap.put(4, 3);
+        numMap.put(4, 4);
+        System.out.println(numMap.values());
     }
 }

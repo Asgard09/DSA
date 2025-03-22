@@ -1,8 +1,8 @@
 import java.util.PriorityQueue;
 /*Use minHeap because the head of minHeap always min val */
 public class _703_Kth_Largest_Element_in_a_Stream {
-    private static PriorityQueue<Integer> minHeap;
-    private static int k;
+    private PriorityQueue<Integer> minHeap;
+    private int k;
 
     public _703_Kth_Largest_Element_in_a_Stream(int k, int[] nums) {
         this.k = k;
