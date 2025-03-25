@@ -11,6 +11,8 @@ public class _15_3Sum {
             int target = -nums[i];
             int j = i + 1;
             int k = nums.length - 1;
+            /*Avoid duplicate i */
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
 
             while(j<k){
                 int sum = nums[j] + nums[k];
@@ -20,7 +22,12 @@ public class _15_3Sum {
                     k--;
                 }else{
                     res.add(Arrays.asList(nums[i], nums[j], nums[k]));
-                    continue;
+                    j++;
+                    k--;
+                    /*Avoid duplicate j */
+                    while (j<k && nums[j] == nums[j-1]) {
+                        j++;
+                    }
                 }
             }
         }
@@ -28,8 +35,9 @@ public class _15_3Sum {
         return res;
     }
 
+
     public static void main(String[] args) {
-        int[] nums = {-1,0,1,2,-1,-4};
+        int[] nums = {2,-3,0,-2,-5,-5,-4,1,2,-2,2,0,2,-4,5,5,-10};
         System.out.println(threeSum(nums).toString());
     }
 
