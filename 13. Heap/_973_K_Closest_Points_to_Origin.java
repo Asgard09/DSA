@@ -4,15 +4,16 @@ import java.util.Queue;
 public class _973_K_Closest_Points_to_Origin {
     public int[][] kClosest(int[][] points, int k) {
         Queue<int[]> maxHeap = new PriorityQueue<>(
-            (a,b) -> Integer.compare(distance(a), distance(b))
+            (a,b) -> Integer.compare(distance(b), distance(a))
         );
 
         for(int[] point : points){
+            maxHeap.add(point);
             if (maxHeap.size() > k) {
                 maxHeap.poll();
             }
 
-            maxHeap.add(point);
+
         }
 
         int[][] res = new int[k][2];
@@ -24,6 +25,6 @@ public class _973_K_Closest_Points_to_Origin {
     }
 
     public int distance(int[] point){
-        return (int) Math.sqrt(Math.pow(point[0],2)+Math.pow(point[1], 2));
+        return point[0] * point[0] + point[1] * point[1];
     }
 }
