@@ -2,28 +2,25 @@ import java.util.Stack;
 
 public class _150_Evaluate_Reverse_Polish_Notation {
     public static int evalRPN(String[] tokens) {
-        Stack<Integer> operandStack = new Stack<>();
+        Stack<Integer> myStack = new Stack<>();
 
-        for (String token : tokens) {
-            if (token.equals( "+")) {
-                //How to get both firt elements in stack
-                operandStack.push(operandStack.pop() + operandStack.pop());
-            }else if (token.equals( "-")) {
-                int first = operandStack.pop();
-                int second = operandStack.pop();
-                operandStack.push(second - first);
-            }else if (token.equals( "*")) {
-                operandStack.push(operandStack.pop() * operandStack.pop());
-            }else if (token.equals( "/")) {
-                int first = operandStack.pop();
-                int second = operandStack.pop();
-                operandStack.push(second / first);
+        for(String token : tokens){
+            if(token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/")){
+                myStack.push(calculate(myStack.pop(), myStack.pop(), token));
             }else{
-                operandStack.push(Integer.parseInt(token));
+                myStack.push(Integer.parseInt(token));
             }
-        }
+        } 
 
-        return operandStack.peek();
+        return myStack.peek();
+    }
+
+    public static int calculate(int a, int b, String operator){
+        if(operator.equals("+")) return b + a;
+        else if(operator.equals("-")) return b - a;
+        else if(operator.equals("*")) return b * a;
+        else if(operator.equals("/")) return b / a;
+        return 0;
     }
 
     public static void main(String[] args) {
