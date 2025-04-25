@@ -3,8 +3,9 @@ public class _19_Remove_Nth_Node_From_End_of_List {
         ListNode res = new ListNode(0,head);
         ListNode dummy = res;
 
-        for (int i = 0; i < n; i++) {
+        while (n > 0) {
             head = head.next;
+            n--;
         }
 
         while (head != null) {
@@ -13,7 +14,12 @@ public class _19_Remove_Nth_Node_From_End_of_List {
         }
 
         dummy.next = dummy.next.next;
-
         return res.next;
+    }
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(5);
+
+        removeNthFromEnd(head, 2);
     }
 }
